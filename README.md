@@ -2,7 +2,7 @@
 
 Este projeto é uma evolução do temporizador estilo Pomodoro, chamado **Focus Timer v2**, onde os usuários podem usar um contador interativo para gerenciar suas tarefas com eficácia.
 
-🌐 [**Explore o Focus Timer v2 Online! Visite o site!**](https://biscoito-da-sorte-extra.vercel.app/) 👈
+🌐 [**Explore o Focus Timer v2 Online! Visite o site!**](https://focus-timer-v2-seven.vercel.app/) 👈
 
 ## Índice
 
