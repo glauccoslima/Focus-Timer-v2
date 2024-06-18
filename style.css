@@ -1,0 +1,149 @@
+/* Reset CSS básico e variáveis globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 194;
+  /* Matiz principal para cores do tema */
+  --button-controls: hsl(var(--hue), 6%, 21%, 1);
+  /* Cor dos textos e ícones de controle */
+  --bg-color: hsla(var(--hue), 0%, 100%, 1);
+  /* Cor de fundo geral */
+  --bg-button-color: hsla(var(--hue), 9%, 89%, 1);
+  /* Cor de fundo dos botões */
+  --text-focus-color: hsl(var(--hue), 0%, 100%, 1);
+  /* Cor do texto em foco */
+  --primary-color: hsla(var(--hue), 97%, 31%, 1);
+  /* Cor primária para destaques */
+  font-size: clamp(40%, 1% + 2vw, 82.5%);
+  /* Tamanho da fonte responsivo */
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  /* Oculta conteúdo apenas acessível a leitores de tela */
+}
+
+/* Estilização principal do corpo e layout da aplicação */
+body {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  /* Centraliza todo o conteúdo */
+}
+
+#container {
+  display: flex;
+  gap: 20rem;
+  /* Espaçamento entre elementos principais */
+  justify-content: center;
+}
+
+#timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#time-display {
+  font-size: 12rem;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: var(--button-controls);
+}
+
+/* Estilização dos botões do cronômetro */
+#timer-controls {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.7rem;
+}
+
+#timer-controls button {
+  background-color: transparent;
+  border: none;
+  font-size: 4.8rem;
+  cursor: pointer;
+  color: var(--button-controls);
+}
+
+/* Estilização da seção de sons */
+#sounds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+}
+
+#sounds button {
+  background-color: var(--bg-button-color);
+  border: none;
+  border-radius: 1.5rem;
+  padding: 4rem;
+  font-size: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--button-controls);
+  cursor: pointer;
+}
+
+/* Estilo quando um som está ativo */
+#sounds button.focus {
+  background-color: var(--primary-color);
+  color: var(--text-focus-color);
+}
+
+#timer-controls button {
+  transition: transform 0.1s ease;
+}
+
+#timer-controls button:active {
+  transform: translateY(2px);
+}
+
+html:not(.running) .ph-pause-circle,
+html.running .ph-play-circle {
+  display: none;
+}
+
+/* Estados hover e focus para botões */
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--primary-color);
+  color: var(--text-focus-color);
+}
+
+/* Ajustes para modo mobile */
+@media (max-width: 1023px) {
+
+  #container,
+  #timer,
+  body {
+    display: grid;
+    justify-items: center;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  #time-display {
+    display: block;
+  }
+}

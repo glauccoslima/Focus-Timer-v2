@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Temporizador Estilo Pomodoro">
+  <title>Focus Timer 2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="./source/main.js"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+  <div id="container">
+    <section id="timer">
+      <h2 class="sr-only">Timer Controls</h2> <!-- Cabeçalho invisível para leitores de tela -->
+      <div id="time-display">
+        <span id="minutes">25</span>:<span id="seconds">00</span>
+      </div>
+      <div id="timer-controls">
+        <!-- Botões de controle do timer com ícones acessíveis e descrições para leitores de tela -->
+        <button data-action="toggleRunning" class="ph-bold ph-play-circle">
+          <span class="sr-only">Play</span>
+        </button>
+        <button data-action="toggleRunning" class="ph ph-pause-circle">
+          <span class="sr-only">Pause</span>
+        </button>
+        <button data-action="reset" class="ph-bold ph-stop-circle">
+          <span class="sr-only">Reset</span>
+        </button>
+        <button data-action="moreFive" class="ph-bold ph-plus-circle">
+          <span class="sr-only">Mais 5 minutos</span>
+        </button>
+        <button data-action="minusFive" class="ph-bold ph-minus-circle">
+          <span class="sr-only">Menos 5 minutos</span>
+        </button>
+      </div>
+    </section>
+    <section id="sounds">
+      <h2 class="sr-only">Ambient Sounds</h2> <!-- Cabeçalho invisível para leitores de tela -->
+      <!-- Botões para controle de sons ambiente com ícones e descrições para leitores de tela -->
+      <button id="forest-button" data-action="floresta" class="ph-bold ph-tree">
+        <span class="sr-only">Vetor de uma árvore</span>
+      </button>
+      <button id="rain-button" data-action="chuva" class="ph-bold ph-cloud-rain">
+        <span class="sr-only">Vetor de uma nuvem</span>
+      </button>
+      <button id="cafe-button" data-action="cafeteria" class="ph-bold ph-storefront">
+        <span class="sr-only">Vetor de uma barraca de mercado</span>
+      </button>
+      <button id="fireplace-button" data-action="lareira" class="ph-bold ph-fire">
+        <span class="sr-only">Vetor de fogo</span>
+      </button>
+    </section>
+
+  </div>
+</body>
+
+</html>
