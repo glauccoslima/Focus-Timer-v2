@@ -1,8 +1,8 @@
 # Focus Timer v2 🕒
 
-Este projeto é uma evolução do temporizador estilo Pomodoro, chamado **Focus Timer v2**, onde os usuários podem usar um contador interativo para gerenciar suas tarefas com eficácia.
+O Focus Timer V2 é uma ferramenta digital desenvolvida para auxiliar na gestão do tempo, baseando-se na técnica Pomodoro para aumentar a produtividade. O site oferece uma interface simples e intuitiva que permite aos usuários configurar um temporizador para períodos de foco intensivo, intercalados com breves intervalos.
 
-🌐 [**Explore o Focus Timer v2 Online! Visite o site!**](https://focus-timer-v2-seven.vercel.app/) 👈
+🌐 [**Explore o Focus Timer v2 Online! Visite o site!**](https://github.com/glauccoslima/Focus-Timer-v2.git) 👈
 
 ## Índice
 
@@ -18,10 +18,19 @@ O objetivo desta aplicação é fornecer um temporizador estilo Pomodoro para ge
 
 ## Funcionalidades ✨
 
-- **Controles Interativos**: Inicie, pause e pare o temporizador com controles fáceis de usar.
-- **Ajuste de Tempo**: Adicione ou remova 5 minutos ao temporizador.
-- **Sons Ambiente**: Escolha entre sons de floresta, chuva, cafeteria e lareira para melhorar sua concentração.
-- **Animações Suaves**: Desfrute de uma experiência visual agradável com animações fluidas.
+### Controle de Temporização
+- **Iniciar/Pausar/Resetar**: Interaja com o temporizador facilmente através dos botões intuitivos.
+- **Ajuste de Tempo**: Adicione ou remova cinco minutos ao tempo padrão com um simples clique.
+
+### Sons Ambiente
+- **Melhore sua Concentração**: Escolha entre sons de floresta, chuva, cafeteria e lareira.
+- **Ambientes Imersivos**: Cada som ajuda a criar um ambiente mais relaxante e focado.
+
+### Interface Responsiva
+- **Acessibilidade em Qualquer Dispositivo**: O design responsivo assegura uma operação fluida tanto em dispositivos móveis quanto em desktops.
+
+### Estética Visual
+- **Design Atraente**: Uma paleta de cores suave e animações discretas criam um ambiente visualmente agradável que ajuda, e não distrai, o foco no trabalho.
 
 ## Tecnologias Utilizadas 💻
 
