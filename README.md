@@ -2,7 +2,7 @@
 
 O Focus Timer V2 é uma ferramenta digital desenvolvida para auxiliar na gestão do tempo, baseando-se na técnica Pomodoro para aumentar a produtividade. O site oferece uma interface simples e intuitiva que permite aos usuários configurar um temporizador para períodos de foco intensivo, intercalados com breves intervalos.
 
-🌐 [**Explore o Focus Timer v2 Online! Visite o site!**](https://github.com/glauccoslima/Focus-Timer-v2.git) 👈
+🌐 [**Explore o Focus Timer v2 Online! Visite o site!**](https://focus-timer-v2-seven.vercel.app/) 👈
 
 ## Índice
 
