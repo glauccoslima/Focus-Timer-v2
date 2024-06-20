@@ -1,13 +1,15 @@
-/* Reset CSS básico e variáveis globais */
+/* Reset CSS básico para garantir consistência entre diferentes navegadores */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Inclui padding e bordas no cálculo de largura/altura dos elementos */
 }
 
+/* Definição de variáveis globais para facilitar a manutenção e customização do tema */
 :root {
   --hue: 194;
-  /* Matiz principal para cores do tema */
+  /* Base para variações de cor do tema */
   --button-controls: hsl(var(--hue), 6%, 21%, 1);
   /* Cor dos textos e ícones de controle */
   --bg-color: hsla(var(--hue), 0%, 100%, 1);
@@ -19,131 +21,247 @@
   --primary-color: hsla(var(--hue), 97%, 31%, 1);
   /* Cor primária para destaques */
   font-size: clamp(40%, 1% + 2vw, 82.5%);
-  /* Tamanho da fonte responsivo */
+  /* Tamanho de fonte responsivo */
 }
 
+/* Classe para ocultar conteúdo de forma acessível */
 .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
-  padding: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-  /* Oculta conteúdo apenas acessível a leitores de tela */
 }
 
-/* Estilização principal do corpo e layout da aplicação */
+/* Estilização e configuração do layout principal */
 body {
   display: grid;
   height: 100vh;
+  /* Usa toda a altura da viewport */
   place-content: center;
-  /* Centraliza todo o conteúdo */
+  /* Centraliza conteúdo na página */
 }
 
+/* Flex container para os componentes principais */
 #container {
   display: flex;
   gap: 20rem;
-  /* Espaçamento entre elementos principais */
+  /* Espaçamento entre elementos */
   justify-content: center;
+  /* Alinhamento central */
 }
 
+/* Configurações do cronômetro */
 #timer {
   display: flex;
   flex-direction: column;
+  /* Organiza os filhos em coluna */
   align-items: center;
+  /* Alinha itens ao centro horizontalmente */
   justify-content: center;
+  /* Alinha itens ao centro verticalmente */
 }
 
+/* Estilização específica para o display do tempo */
 #time-display {
   font-size: 12rem;
+  /* Tamanho grande do texto para fácil leitura */
   font-family: "Roboto", sans-serif;
+  /* Fonte moderna e legível */
   display: flex;
   align-items: center;
+  /* Alinhamento central vertical */
   justify-content: center;
+  /* Alinhamento central horizontal */
   font-weight: 500;
   color: var(--button-controls);
+  /* Cor do texto definida pela variável */
 }
 
-/* Estilização dos botões do cronômetro */
+/* Configuração dos controles do cronômetro */
 #timer-controls {
   display: flex;
   gap: 2rem;
+  /* Espaçamento entre botões */
   margin-top: 1.7rem;
+  /* Margem superior para distanciamento visual */
 }
 
+/* Estilização dos botões de controle */
 #timer-controls button {
   background-color: transparent;
   border: none;
+  /* Sem bordas para um design mais limpo */
   font-size: 4.8rem;
+  /* Tamanho de fonte grande para interação fácil */
   cursor: pointer;
+  /* Indica que o elemento é clicável */
   color: var(--button-controls);
+  /* Cor dos ícones e texto */
 }
 
-/* Estilização da seção de sons */
+/* Grid para botões de sons com ajustes visuais */
 #sounds {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  /* Duas colunas de tamanho igual */
   gap: 3.2rem;
+  /* Espaçamento entre botões */
 }
 
+/* Estilização dos botões de sons */
 #sounds button {
   background-color: var(--bg-button-color);
+  /* Cor de fundo para botões de som */
   border: none;
   border-radius: 1.5rem;
+  /* Bordas arredondadas para estética suave */
   padding: 4rem;
+  /* Padding amplo para área de clique maior */
   font-size: 4.8rem;
+  /* Fonte grande para visibilidade */
   display: flex;
   align-items: center;
+  /* Alinhamento vertical dos ícones/texto */
   justify-content: center;
+  /* Alinhamento horizontal dos ícones/texto */
   color: var(--button-controls);
+  /* Cor de texto */
   cursor: pointer;
+  /*Indica clicável */
 }
 
-/* Estilo quando um som está ativo */
+/* Estilo para botões de som quando ativos */
 #sounds button.focus {
   background-color: var(--primary-color);
+  /* Cor de fundo alterada para destaque */
   color: var(--text-focus-color);
+  /* Cor de texto alterada para melhor visibilidade */
 }
 
+/* Efeito de transição para transformação dos botões de controle */
 #timer-controls button {
   transition: transform 0.1s ease;
+  /* Transição suave para o efeito de pressão do botão */
 }
 
 #timer-controls button:active {
   transform: translateY(2px);
+  /* Simula o efeito de pressionar o botão */
 }
 
+/* Controle de exibição dos ícones de pausa/play com base no estado do aplicativo */
 html:not(.running) .ph-pause-circle,
 html.running .ph-play-circle {
   display: none;
+  /* Esconde ou mostra ícones conforme o estado de execução */
 }
 
-/* Estados hover e focus para botões */
+/* Estilos de interação para todos os botões */
 button {
   transition: background-color 0.3s ease;
+  /* Transição suave da cor de fundo ao interagir */
 }
 
 button:hover,
 button:focus {
   background-color: var(--primary-color);
+  /* Cor de fundo ao passar o mouse ou focar */
   color: var(--text-focus-color);
+  /* Cor do texto ao passar o mouse ou focar */
 }
 
-/* Ajustes para modo mobile */
-@media (max-width: 1023px) {
+/* Media Queries para adaptar o layout em diferentes tamanhos de tela */
+@media only screen and (max-width: 320px),
+only screen and (max-width: 375px) and (orientation: landscape) {
 
   #container,
   #timer,
   body {
     display: grid;
     justify-items: center;
-    padding: 2rem;
-    gap: 2rem;
+    padding: 1rem;
+    margin-top: 50px;
+    gap: 1rem;
   }
 
   #time-display {
     display: block;
+    /* Ajuste para visibilidade em telas menores */
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 375px),
+only screen and (min-width: 375px) and (max-width: 424px) and (orientation: landscape) {
+
+  #container,
+  #timer,
+  body {
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+    margin-top: 50px;
+    gap: 1rem;
+  }
+
+  #time-display {
+    display: block;
+    /* Mantém a exibição clara e acessível em diferentes orientações */
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 425px) {
+
+  #container,
+  #timer,
+  body {
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+    margin-top: 50px;
+    gap: 1rem;
+  }
+
+  #time-display {
+    display: block;
+    /* Assegura boa visibilidade em dispositivos médios */
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+
+  #container,
+  #timer,
+  body {
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+    margin-top: 50px;
+    gap: 1rem;
+  }
+
+  #time-display {
+    display: block;
+    /* Ajuste ideal para tablets e dispositivos de tamanho intermediário */
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+
+  #container,
+  #timer,
+  body {
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+    margin-top: 50px;
+    gap: 1rem;
+  }
+
+  #time-display {
+    display: block;
+    /* Configuração para dispositivos maiores, como tablets em modo paisagem */
   }
 }
