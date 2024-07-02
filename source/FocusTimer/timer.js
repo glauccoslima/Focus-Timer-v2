@@ -1,52 +1,46 @@
-// Importação de módulos necessários: estado geral, elementos do DOM e função de reset
-import state from "./state.js";
-import * as el from "./elements.js";
-import { reset } from "./actions.js";
+import state from "./state.js"; // Importa o estado do cronômetro
+import * as el from "./elements.js"; // Importa os elementos de interface para manipulação
+import { reset as originalReset } from "./actions.js"; // Importa a função de reset padrão do cronômetro
+import { musicReset } from "../musics/actions.js"; // Importa a função para parar a reprodução de músicas
 
 /**
- * Função para gerenciar a contagem regressiva do cronômetro.
- * É chamada repetidamente até que o cronômetro seja pausado ou o tempo esgote.
+ * Função que gerencia a contagem regressiva do cronômetro.
  */
 export function countdown() {
-    clearTimeout(state.countdownId); // Limpa o timeout anterior para evitar que se acumulem
+  clearTimeout(state.countdownId); // Limpa o timeout para evitar chamadas duplicadas
 
-    if (!state.isRunning) {
-        return; // Interrompe a função se o cronômetro não estiver ativo
-    }
+  if (!state.isRunning) { // Verifica se o cronômetro está ativo
+    return; // Encerra a função se o cronômetro não estiver ativo
+  }
 
-    // Obtém os minutos e segundos atuais do cronômetro
-    let minutes = Number(el.minutes.textContent);
-    let seconds = Number(el.seconds.textContent);
+  let minutes = Number(el.minutes.textContent); // Converte o conteúdo textual dos minutos para número
+  let seconds = Number(el.seconds.textContent); // Converte o conteúdo textual dos segundos para número
 
-    // Decrementa os segundos e ajusta os minutos se necessário
-    seconds--;
-    if (seconds < 0) {
-        seconds = 59;
-        minutes--;
-    }
+  seconds--; // Decrementa os segundos
+  if (seconds < 0) { // Se os segundos forem menor que zero
+    seconds = 59; // Reseta os segundos para 59
+    minutes--; // Decrementa um minuto
+  }
 
-    // Se os minutos forem menores que zero, chama a função de reset
-    if (minutes < 0) {
-        reset();
-        return;
-    }
+  if (minutes < 0) { // Se os minutos forem menor que zero
+    originalReset(); // Chama a função de reset do cronômetro
+    musicReset();  // Chama a função para parar os sons
+    return; // Encerra a função
+  }
 
-    // Atualiza o display do cronômetro com os novos valores de tempo
-    el.minutes.textContent = String(minutes).padStart(2, "0");
-    el.seconds.textContent = String(seconds).padStart(2, "0");
+  // Atualiza os textos dos elementos de minutos e segundos
+  el.minutes.textContent = String(minutes).padStart(2, "0");
+  el.seconds.textContent = String(seconds).padStart(2, "0");
 
-    // Agenda a próxima chamada da função countdown para daqui a 1 segundo
-    state.countdownId = setTimeout(countdown, 1000);
+  // Define um novo timeout para continuar a contagem regressiva
+  state.countdownId = setTimeout(countdown, 1000);
 }
 
 /**
- * Função para atualizar a exibição do cronômetro no DOM.
- * Pode ser chamada com valores específicos de minutos e segundos.
- * @param {number} minutes - Minutos para serem exibidos (default: minutos do estado global)
- * @param {number} seconds - Segundos para serem exibidos (default: segundos do estado global)
+ * Atualiza os displays de minutos e segundos.
  */
 export function updateDisplay(minutes = state.minutes, seconds = state.seconds) {
-    // Atualiza os elementos do DOM para minutos e segundos, preenchendo com zero à esquerda se necessário
-    el.minutes.textContent = String(minutes).padStart(2, "0");
-    el.seconds.textContent = String(seconds).padStart(2, "0");
+  // Define o conteúdo textual dos elementos de minutos e segundos
+  el.minutes.textContent = String(minutes).padStart(2, "0");
+  el.seconds.textContent = String(seconds).padStart(2, "0");
 }

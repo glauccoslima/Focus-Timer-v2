@@ -1,11 +1,22 @@
-// Importa e configura os arquivos de áudio para os sons de ambiente
-export const floresta = new Audio('./assets/sounds/Floresta.wav');
-export const chuva = new Audio('./assets/sounds/Chuva.wav');
-export const cafeteria = new Audio('./assets/sounds/Cafeteria.wav');
-export const lareira = new Audio('./assets/sounds/Lareira.wav');
+// Importação dos arquivos de áudio que serão utilizados no aplicativo
+export const floresta = new Audio('./assets/sounds/Floresta.wav'); // Som de floresta
+export const chuva = new Audio('./assets/sounds/Chuva.wav'); // Som de chuva
+export const cafeteria = new Audio('./assets/sounds/Cafeteria.wav'); // Som de cafeteria
+export const lareira = new Audio('./assets/sounds/Lareira.wav'); // Som de lareira
 
-// Define que os áudios devem ser repetidos indefinidamente
+// Configuração dos áudios para tocarem em loop
 floresta.loop = true;
 chuva.loop = true;
 cafeteria.loop = true;
 lareira.loop = true;
+
+// Função para iniciar a reprodução de um áudio específico
+export function tocarSom(audio) {
+  audio.play();
+}
+
+// Função para parar a reprodução de um áudio e resetar o tempo para o início
+export function pararSom(audio) {
+  audio.pause();
+  audio.currentTime = 0;
+}
